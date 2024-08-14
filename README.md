@@ -3,6 +3,10 @@ Supabase for PHP client. Realtime database, Storage.
 
 ### Example
 ```php
+<?php
+use Supabase\Database;
+use Supabase\Storage;
+
 $key = "ae2gsg85vsgs63!dfd/svd";
 $db_name = "test";
 
