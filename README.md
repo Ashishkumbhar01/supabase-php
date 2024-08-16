@@ -1,4 +1,7 @@
 ### Supabase-PHP
+
+![Supabase](https://getlogo.net/wp-content/uploads/2020/11/supabase-logo-vector.png)
+
 Supabase for PHP client. Realtime database, Storage.
 
 ### Example
