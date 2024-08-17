@@ -1,5 +1,5 @@
 {
-    "name": "supabase/supabase-client",
+    "name": "supabase-php/supabase-client",
     "description": "Supabase for PHP client.",
     "type": "project",
     "version": "1.0.0",
