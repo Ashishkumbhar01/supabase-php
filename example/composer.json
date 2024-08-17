@@ -1,0 +1,29 @@
+{
+    "name": "supabase/supabase-php",
+    "description": "Supabase for PHP client.",
+    "type": "project",
+    "version": "1.0.0",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.11"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Supabase\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sushil Kumar",
+            "email": "sushilkumbhar77@gmail.com"
+        },
+        {
+          "name": "Ashish Kumbhar",
+          "email": "ashishkumbhar01@hotmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
