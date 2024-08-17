@@ -1,5 +1,7 @@
 <?php
+namespace Supabase\Storage;
 
-class {
+class Storage
+{
   // Storage class 
 }

@@ -1,5 +1,5 @@
 <?php
-namespace Supabase;
+namespace Supabase\Supabase;
 
 class Supabase {
   protected string $apikey;
