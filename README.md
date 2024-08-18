@@ -52,7 +52,7 @@ $client->update($table, $id, $data);
 $id = 2;
 $client->delete($table, $id);
 ```
-* When you creating your supabase table, make sure RLS (Row Level Security) [ ] option be disable. if RLS are enable [×] maybe you getting some error so you need to use `Auth class`.
+* When you creating your supabase table, make sure RLS (Row Level Security) option be - [ ] disable. if RLS are enable [×] maybe you getting some error so you need to use `Auth class`.
 
 ### Supabase Authentication
 * Auth Class coming soon.
