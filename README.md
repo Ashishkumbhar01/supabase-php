@@ -14,9 +14,11 @@ Supabase for PHP client. Realtime database, Storage.
 ### Example
 * Install Supabase client for our project.
 * Than we are require supabase-client by composer.
+
 ```bash
 composer require supabase-php/supabase-client
 ```
+
 * First of all we need our `.env` file, so follow this command.
 
 ```bash
