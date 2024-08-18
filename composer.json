@@ -5,7 +5,7 @@
     "version": "1.0",
     "require": {
       "php": "^7.0",
-        "vlucas/phpdotenv": "^5.6"
+      "vlucas/phpdotenv": "^5.6"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.11"
@@ -30,6 +30,5 @@
           "name": "Ashish Kumbhar",
           "email": "ashishkumbhar01@hotmail.com"
         }
-    ],
-    "minimum-stability": "dev"
+    ]
 }
