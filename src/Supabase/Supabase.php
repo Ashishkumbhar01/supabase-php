@@ -1,86 +1,220 @@
 <?php
-namespace Supabase;
+namespace Supabase\Supabase;
 
-class Supabase {
-  protected string $apikey;
-  protected string $project_id;
-  protected string $table;
+class Supabase
+{
+  private string|null $apikey;
+  private string|null $project_id;
+  private string|null $table;
   protected $conn;
   protected $url;
 
-  public function __construct(string $url=null, string $apikey=null, string $table=null){
-    
-    $this->apikey = $apikey;
-    $this->project_id = $url;
-    $this->table = $table;
+  public function __construct($url = null, $apikey = null, $table = null)
+  {
+    if ($url != "" && $apikey != "" && $table != "") {
+      //$this->url = $url;
+      $this->apikey = $apikey;
+      $this->project_id = $url;
+      $this->table = $table;
+    } else {
+      echo "Please provide Supabase full Details.\r\n";
+    }
 
-    // Supabase URL
-    $this->url = $url;
+    $URL = "$this->project_id/rest/v1/$this->table";
+    $this->url = $URL;
 
-    $url = "https://$this->project_id.supabase.co/rest/v1/$this->table";
-    
-    $header = array("apikey: $this->apikey",
+    $header = [
+      "apikey: $this->apikey",
       "Authorization: Bearer $this->apikey",
       "Content-Type: application/json",
-      "prefer: return=representation");
+    ];
 
-    // CURL 
+    // CURL
     $ch = null;
     $this->conn = $ch;
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-    
-    $result = curl_exec($ch);
-    
-    if(curl_errno($ch)){
-      echo "Error :". curl_error($ch);
-      curl_close($ch);
+    $this->conn = curl_init();
+    curl_setopt($this->conn, CURLOPT_URL, $url);
+    curl_setopt($this->conn, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($this->conn, CURLOPT_HTTPHEADER, $header);
+
+    $result = curl_exec($this->conn);
+    $data = json_decode($result, true);
+
+    if (curl_errno($this->conn)) {
+      $err = curl_error($this->conn);
+      echo "Error" . $err;
+      curl_close($this->conn);
     } else {
-      $data = json_decode($result, true);
-      echo "<pre>";
-      print_r($data);
-      echo "<pre>";
+      if (isset($data["message"])) {
+        echo $data["message"] . "<br/>";
+      }
     }
   }
 
-  public function postData(){
-    
-    $data = [
-      "name" => "Sushil Kumar",
-      "email" => "sushilkumar@gmail.com",
-      "password" => "sushil@1234"
+  public function get($table = null)
+  {
+    if (!isset($table)) {
+      echo "Please provide Supabase table name";
+    } else {
+      //$this->url=$this->url."?select=$query";
+      $header = [
+        "apikey: $this->apikey",
+        "Authorization: Bearer $this->apikey",
+        "Content-Type: application/json",
+      ];
+
+      $this->conn = curl_init();
+      curl_setopt($this->conn, CURLOPT_URL, $this->url);
+      curl_setopt($this->conn, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($this->conn, CURLOPT_HTTPHEADER, $header);
+      $result = curl_exec($this->conn);
+      $data = json_decode($result, true);
+
+      if (curl_errno($this->conn)) {
+        echo "Error: " . curl_error($this->conn);
+        curl_close($this->conn);
+      } else {
+        return $data;
+      }
+    }
+  }
+
+  public function fetch($table = null, $query = [])
+  {
+    if (!isset($table)) {
+      echo "Please provide table name.";
+    } else {
+      $this->url = $this->url . "?select=$query";
+      $header = [
+        "apikey: $this->apikey",
+        "Authorization: Bearer $this->apikey",
+        "Content-Type: application/json",
+      ];
+
+      $this->conn = curl_init();
+      curl_setopt($this->conn, CURLOPT_URL, $this->url);
+      curl_setopt($this->conn, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($this->conn, CURLOPT_HTTPHEADER, $header);
+      $result = curl_exec($this->conn);
+      $data = json_decode($result, true);
+      if (curl_errno($this->conn)) {
+        echo "Error: " . curl_error($this->conn);
+        curl_close($this->conn);
+      } else {
+        return $data;
+      }
+    }
+  }
+
+  public function post($table = null, $query = [])
+  {
+    if (!isset($table)) {
+      echo "Please provide your Supabase table name.";
+    } elseif (!isset($query)) {
+      echo "Please insert your data.";
+    } else {
+      // Set up the cURL request
+      $this->conn = curl_init();
+      curl_setopt($this->conn, CURLOPT_URL, $this->url);
+      curl_setopt($this->conn, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($this->conn, CURLOPT_POST, true);
+      curl_setopt($this->conn, CURLOPT_POSTFIELDS, json_encode($query));
+      curl_setopt($this->conn, CURLOPT_HTTPHEADER, [
+        "apikey: $this->apikey",
+        "Authorization: Bearer $this->apikey",
+        "Content-Type: application/json",
+        "Prefer: return=minimal",
+      ]);
+      curl_setopt($this->conn, CURLOPT_TIMEOUT, 120);
+      // Execute the request and capture the response
+      $response = curl_exec($this->conn);
+      $result = json_decode($response, true);
+      // Check for cURL errors
+      if (curl_errno($this->conn)) {
+        echo "Error:" . curl_error($this->conn);
+        curl_close($this->conn);
+      } else {
+        // Output the response
+        echo "Data Post successfully";
+      }
+      // Close the cURL session
+      curl_close($this->conn);
+    }
+  }
+
+  public function update($table = null, int $id = null, $query = [])
+  {
+    if (!isset($table)) {
+      echo "Please provide your Supabase table name.";
+    } elseif (!isset($query)) {
+      echo "Please provide your data.";
+    } elseif (!isset($id)) {
+      echo "Please provide id number.";
+    } else {
+      $this->url = $this->url . "?id=eq.$id";
+    }
+
+    $headers = [
+      "apikey: $this->apikey",
+      "Authorization: Bearer $this->apikey",
+      "Content-Type: application/json",
+      "Prefer: return=minimal",
     ];
 
-$url = "https://$this->project_id.supabase.co/rest/v1/$this->table";
-// Set up the cURL request
-$ch = curl_init();
+    $this->conn = curl_init();
+    curl_setopt($this->conn, CURLOPT_URL, $this->url);
+    curl_setopt($this->conn, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($this->conn, CURLOPT_CUSTOMREQUEST, "PATCH");
+    curl_setopt($this->conn, CURLOPT_POSTFIELDS, json_encode($query));
+    curl_setopt($this->conn, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($this->conn, CURLOPT_TIMEOUT, 120);
 
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    "apikey: $this->apikey",
-    "Authorization: Bearer $this->apikey",
-    "Content-Type: application/json",
-    "Prefer: return=representation"
-]);
+    $response = curl_exec($this->conn);
+    $result = json_decode($response, true);
 
-// Execute the request and capture the response
-$response = curl_exec($ch);
+    if (curl_errno($this->conn)) {
+      echo "Error: " . curl_error($this->conn);
+      curl_close($this->conn);
+    } else {
+      echo "Data update successfully.";
+      return $result;
+    }
+    curl_close($this->conn);
+  }
 
-// Check for cURL errors
-if (curl_errno($ch)) {
-    echo 'Error:' . curl_error($ch);
-} else {
-    // Output the response
-    echo $response;
-}
+  public function delete($table = null, int $id = null)
+  {
+    if (!isset($table)) {
+      echo "Please provide your Supabase table name.";
+    } elseif (!isset($id)) {
+      echo "Please provide id.";
+    } else {
+      $this->url = $this->url . "?id=eq.$id";
 
-// Close the cURL session
-curl_close($ch);
+      $headers = [
+        "apikey: $this->apikey",
+        "Authorization: Bearer $this->apikey",
+        "Content-Type: application/json",
+      ];
 
+      $this->conn = curl_init();
+      curl_setopt($this->conn, CURLOPT_URL, $this->url);
+      curl_setopt($this->conn, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($this->conn, CURLOPT_HTTPHEADER, $headers);
+      curl_setopt($this->conn, CURLOPT_CUSTOMREQUEST, "DELETE");
+      curl_setopt($this->conn, CURLOPT_POSTFIELDS, json_encode($id));
+      curl_setopt($this->conn, CURLOPT_TIMEOUT, 120);
+
+      $response = curl_exec($this->conn);
+      $result = json_decode($response, true);
+      if (curl_errno($this->conn)) {
+        echo "Error: " . curl_error($this->conn);
+        curl_close($this->conn);
+      } else {
+        echo "Your data delete successfully.";
+        return $result;
+      }
+      curl_close($this->conn);
+    }
   }
 }
