@@ -1,10 +1,16 @@
 {
     "name": "supabase-php/supabase-client",
     "description": "Supabase for PHP client.",
+
+    "keywords": ["supabase","supabase-php","supabase-client"],
+    "version": "1.0",
+
     "type": "library",
     "version": "1.0.0",
+
     "require": {
-        "vlucas/phpdotenv": "^5.6"
+      "php": "^7.0",
+      "vlucas/phpdotenv": "^5.6"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.11"
@@ -15,6 +21,11 @@
             "Supabase\\": "src/"
         }
     },
+    "autoload-dev": {
+      "psr-4": {
+        "Tests\\": "tests/"
+      }
+    },
     "authors": [
         {
             "name": "Sushil Kumar",
@@ -24,6 +35,5 @@
           "name": "Ashish Kumbhar",
           "email": "ashishkumbhar01@hotmail.com"
         }
-    ],
-    "minimum-stability": "stable"
+    ]
 }
