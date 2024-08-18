@@ -1,7 +1,7 @@
 {
     "name": "supabase-php/supabase-client",
     "description": "Supabase for PHP client.",
-    "type": "project",
+    "type": "library",
     "version": "1.0.0",
     "require": {
         "vlucas/phpdotenv": "^5.6"
