@@ -15,6 +15,11 @@
             "Supabase\\": "src/"
         }
     },
+    "autoload-dev": {
+      "psr-4": {
+        "Tests\\": "tests/"
+      }
+    },
     "authors": [
         {
             "name": "Sushil Kumar",
@@ -24,6 +29,5 @@
           "name": "Ashish Kumbhar",
           "email": "ashishkumbhar01@hotmail.com"
         }
-    ],
-    "minimum-stability": "stable"
+    ]
 }
