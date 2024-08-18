@@ -30,5 +30,6 @@
           "name": "Ashish Kumbhar",
           "email": "ashishkumbhar01@hotmail.com"
         }
-    ]
+    ],
+    "minimum-stability": "stable"
 }
