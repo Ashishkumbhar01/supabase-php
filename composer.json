@@ -1,10 +1,7 @@
 {
     "name": "supabase-php/supabase-client",
     "description": "Supabase for PHP client.",
-
     "keywords": ["supabase","supabase-php","supabase-client"],
-    "version": "1.0",
-
     "type": "library",
     "version": "1.0.0",
 
