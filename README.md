@@ -28,30 +28,40 @@ cp .env.example .env
 
 ```php
 <?php
-use Supabase\Supapase;
-use Supabase\Database;
+use Supabase\Supabase\Supabase as Supabase;
 
-require_once "/vendor/autoload.php";
+require_once __DIR__."/vendor/autoload.php";
 
-$key = $_ENV['apikey'];
-$db_name = $_ENV['project_id'];
-$table = $_ENV['table'];
+$url="https://your_project_id.supabase.co";
+$apikey="";
+$table="users";
 
-$client = new Supabase($key, $db_name);
+$client = new Supabase($url,$apikey,$table);
 
-// Get data
-$client->get($table, $query);
+// get all data.
+$html = $client->get($table);
+echo "<pre>";
+print_r($html);
 
-// Post data
-$data = ['name'=>'jonny', 'email'=>'jonny@deep'];
+// get single data by using column name.
+$html = $client->fetch($table,'name');
+echo "<pre>";
+print_r($html);
+
+$data = [
+"name" => "Sushil Kumar",
+"age" => 23
+];
+
+// post data 
 $client->post($table, $data);
 
-// Update data
-$data = ['name'=>'John', 'email'=>'john@deo.com'];
-$client->update($table, $id, $data);
+// Update the Data by using columns.
+$data = ["name"=>"sushil","age"=>20];
+//$client->update($table, $id, $data);
 
-// Delete data
-$id = 2;
+// Delete the data using by id
+$id = 15;
 $client->delete($table, $id);
 ```
 * When you creating your supabase table, make sure RLS (Row Level Security) option be [×] disable. if RLS are enable [✓] maybe you getting some error so you need to use `Auth class`.
