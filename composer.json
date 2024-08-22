@@ -2,9 +2,9 @@
     "name": "supabase-php/supabase-client",
     "description": "Supabase for PHP client.",
     "keywords": ["supabase","supabase-php","supabase-client"],
-    "type": "library",
-    "version": "1.0.0",
 
+    "version": "1.0",
+    "type": "library",
     "require": {
       "php": "^7.0",
       "vlucas/phpdotenv": "^5.6"
