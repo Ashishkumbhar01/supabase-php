@@ -7,7 +7,8 @@
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/Ashishkumbhar01?style=for-the-badge&logo=Github%20Sponsors&label=Support%20me)](https://github.com/sponsors/Ashishkumbhar01)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Ashishkumbhar01/supabase-php?style=for-the-badge&logo=Github)
 ![GitHub Release](https://img.shields.io/github/v/release/Ashishkumbhar01/supabase-php?style=for-the-badge)
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Ashishkumbhar01/supabase-php/total?style=for-the-badge)
+![Packagist Downloads](https://img.shields.io/packagist/dt/supabase-php/supabase-client?style=for-the-badge&logo=composer)
+
 
 Supabase for PHP client. Realtime database, Storage.
 
