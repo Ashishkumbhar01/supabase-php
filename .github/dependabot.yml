@@ -21,6 +21,6 @@ updates:
     commit-message:
       prefix: "dependabot:"
       include: "scope"
-    target-branch: "main"
+    target-branch: "master"
     versioning-strategy: "increase"
     rebase-strategy: "auto"
