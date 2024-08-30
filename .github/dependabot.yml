@@ -1,3 +1,4 @@
+# Rule
 version: 2
 updates:
   # This section defines updates for Composer dependencies
