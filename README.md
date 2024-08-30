@@ -9,7 +9,6 @@
 ![GitHub Release](https://img.shields.io/github/v/release/Ashishkumbhar01/supabase-php?style=for-the-badge)
 ![Packagist Downloads](https://img.shields.io/packagist/dt/supabase-php/supabase-client?style=for-the-badge&logo=composer)
 
-
 Supabase for PHP client. Realtime database, Storage.
 
 ### Example
