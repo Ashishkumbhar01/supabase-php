@@ -16,7 +16,7 @@ Supabase for PHP client. Realtime database, Storage.
 * Than we are require supabase-client by composer.
 
 ```bash
-composer require supabase-php/supabase-client
+composer require supabase-php/supabase-client:"dev-master"
 ```
 
 * First of all we need our `.env` file, so follow this command.
