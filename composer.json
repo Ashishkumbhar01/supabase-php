@@ -2,8 +2,7 @@
     "name": "supabase-php/supabase-client",
     "description": "Supabase for PHP client.",
     "keywords": ["supabase","supabase-php","supabase-client"],
-
-    "version": "1.0",
+    "version": "1.0.0",
     "type": "library",
     "require": {
       "php": "^7.0",
@@ -26,11 +25,15 @@
     "authors": [
         {
             "name": "Sushil Kumar",
-            "email": "sushilkumbhar77@gmail.com"
+            "email": "sushilkumbhar77@gmail.com",
+            "role": "Developer"
         },
         {
           "name": "Ashish Kumbhar",
-          "email": "ashishkumbhar01@hotmail.com"
+          "email": "ashishkumbhar01@hotmail.com",
+          "role": "Developer"
         }
-    ]
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
