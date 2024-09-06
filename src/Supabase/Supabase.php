@@ -5,17 +5,15 @@ class Supabase
 {
   private string|null $apikey;
   private string|null $project_id;
-  private string|null $table;
+  private string|null $table = null;
   protected $conn;
   protected $url;
 
-  public function __construct($url = null, $apikey = null, $table = null)
+  public function __construct($url = null, $apikey = null)
   {
-    if ($url != "" && $apikey != "" && $table != "") {
-      //$this->url = $url;
+    if ($url != "" && $apikey != "") {
       $this->apikey = $apikey;
       $this->project_id = $url;
-      $this->table = $table;
     } else {
       echo "Please provide Supabase full Details.\r\n";
     }
