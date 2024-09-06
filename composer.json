@@ -2,7 +2,7 @@
     "name": "supabase-php/supabase-client",
     "description": "Supabase for PHP client.",
     "keywords": ["supabase","supabase-php","supabase-client"],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "library",
     "require": {
       "php": "^7.0||^8.3",
