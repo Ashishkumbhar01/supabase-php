@@ -23,7 +23,7 @@ class Supabase
     $URL = "$this->project_id/rest/v1/$this->table";
     $this->url = $URL;
 
-    $header = [
+    $headers = [
       "apikey: $this->apikey",
       "Authorization: Bearer $this->apikey",
       "Content-Type: application/json",
@@ -32,11 +32,18 @@ class Supabase
     // CURL
     $ch = null;
     $this->conn = $ch;
-    $this->conn = curl_init();
-    curl_setopt($this->conn, CURLOPT_URL, $url);
-    curl_setopt($this->conn, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($this->conn, CURLOPT_HTTPHEADER, $header);
+    $this->conn = curl_init($url);
 
+    $options = [
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_TIMEOUT => 120,
+      CURLOPT_ENCODING => "UTF-8",
+      CURLOPT_HTTPHEADER => $headers,
+      CURLOPT_CONNECTTIMEOUT => 120,   
+    ];
+    
+    curl_setopt_array($this->conn, $options);
+    
     $result = curl_exec($this->conn);
     $data = json_decode($result, true);
 
