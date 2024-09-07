@@ -16,6 +16,10 @@ Supabase for PHP client. Realtime database, Storage.
 * Than we are require supabase-client by composer.
 
 ```bash
+composer require supabase-php/supabase-client
+```
+or
+```bash
 composer require supabase-php/supabase-client:"dev-master"
 ```
 
@@ -28,41 +32,53 @@ cp .env.example .env
 
 ```php
 <?php
-use Supabase\Supabase\Supabase as Supabase;
+use Supabase\Supabase\Supabase;
 
 require_once __DIR__."/vendor/autoload.php";
 
-$url="https://your_project_id.supabase.co";
-$apikey="";
-$table="users";
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
-$client = new Supabase($url,$apikey,$table);
+// .env config
+$config = array(
+   'url' => $_ENV['SB_URL'],
+   'apikey' => $_ENV['SB_APIKEY']
+);
+
+$client = new Supabase(
+   $config['url'],
+   $config['apikey']
+);
 
 // get all data.
-$html = $client->get($table);
+$html = $client->getAllData('users');
 echo "<pre>";
 print_r($html);
 
 // get single data by using column name.
-$html = $client->fetch($table,'name');
+$html=$client->getSingleData($table,'name');
+
 echo "<pre>";
 print_r($html);
 
 $data = [
-"name" => "Sushil Kumar",
-"age" => 23
+'name' => 'Sushil Kumar',
+'age' => 23
 ];
 
 // post data 
-$client->post($table, $data);
+$client->postData('users', $data);
 
 // Update the Data by using columns.
-$data = ["name"=>"sushil","age"=>20];
-//$client->update($table, $id, $data);
+$data = [
+'name' => 'sushil',
+'age' => 20
+];
+
+$client->updateData($table, $id, $data);
 
 // Delete the data using by id
-$id = 15;
-$client->delete($table, $id);
+$client->deleteData($table, 20);
 ```
 * When you creating your supabase table, make sure RLS (Row Level Security) option be [×] disable. if RLS are enable [✓] maybe you getting some error so you need to use `Auth class`.
 
