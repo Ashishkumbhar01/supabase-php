@@ -1,30 +1,30 @@
 <?php
 namespace Supabase;
+
 use Supabase\Supabase\Supabase;
+use Dotenv\Dotenv;
 
-class Functions extends Supabase {
+class Functions extends Supabase{
+  public $supabase;
+  
+  public function __construct(){
+    $dotenv = Dotenv::createImmutable(APP_ROOT);
+    $dotenv->load();
+    $config = array(
+      'url' => $_ENV['SB_URL'],
+      'apikey' => $_ENV['SB_APIKEY']
+    );
+    
+    $client = null;
+    try{
+      $this->supabase=$client;
 
-  public static function getData($url, $table){
-    $headers = [];
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    $result = curl_exec($ch);
-    echo $result;
-    curl_close($ch);
-  }
-
-  public static function postData(){
-
-  }
-
-  public static function updateData(){
-
-  }
-
-  public static function deleteData(){
-
+      $client = new Supabase(
+        $config['url'],
+        $config['apikey']
+      );
+    } catch(Exception $e){
+      echo "Error :". $e->getMessage();
+    }
   }
 }

@@ -5,17 +5,17 @@ class Supabase
 {
   private string|null $apikey;
   private string|null $project_id;
-  private string|null $table;
+  protected string|null $table = null;
   protected $conn;
   protected $url;
+  public $data;
 
-  public function __construct($url = null, $apikey = null, $table = null)
+  public function __construct($url=null, $apikey=null)
   {
-    if ($url != "" && $apikey != "" && $table != "") {
-      //$this->url = $url;
-      $this->apikey = $apikey;
-      $this->project_id = $url;
-      $this->table = $table;
+
+    if (isset($url) && isset($apikey)) {
+     $this->apikey = $apikey;
+     $this->project_id = $url;
     } else {
       echo "Please provide Supabase full Details.\r\n";
     }
@@ -37,7 +37,7 @@ class Supabase
     $options = [
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_TIMEOUT => 120,
-      CURLOPT_ENCODING => "UTF-8",
+      CURLOPT_ENCODING => "UTF-8", 
       CURLOPT_HTTPHEADER => $headers,
       CURLOPT_CONNECTTIMEOUT => 120,   
     ];
@@ -58,12 +58,16 @@ class Supabase
     }
   }
 
-  public function get($table = null)
+  public function getAllData($table = null)
   {
     if (!isset($table)) {
       echo "Please provide Supabase table name";
     } else {
       //$this->url=$this->url."?select=$query";
+      $this->table = $table;
+      $URL="$this->project_id/rest/v1/$this->table";
+      $this->url = $URL;
+
       $header = [
         "apikey: $this->apikey",
         "Authorization: Bearer $this->apikey",
@@ -78,7 +82,7 @@ class Supabase
       $data = json_decode($result, true);
 
       if (curl_errno($this->conn)) {
-        echo "Error: " . curl_error($this->conn);
+        echo "Error: ". curl_error($this->conn);
         curl_close($this->conn);
       } else {
         return $data;
@@ -86,12 +90,17 @@ class Supabase
     }
   }
 
-  public function fetch($table = null, $query = [])
+  public function getSingleData($table = null, $query = [])
   {
     if (!isset($table)) {
       echo "Please provide table name.";
     } else {
-      $this->url = $this->url . "?select=$query";
+
+      $this->table = $table;
+      $URL="$this->project_id/rest/v1/$this->table";
+      $this->url = $URL;
+
+      $this->url=$this->url."?select=$query";
       $header = [
         "apikey: $this->apikey",
         "Authorization: Bearer $this->apikey",
@@ -113,13 +122,17 @@ class Supabase
     }
   }
 
-  public function post($table = null, $query = [])
+  public function postData($table = null, $query = [])
   {
     if (!isset($table)) {
       echo "Please provide your Supabase table name.";
     } elseif (!isset($query)) {
       echo "Please insert your data.";
     } else {
+      $this->table = $table;
+      $URL = "$this->project_id/rest/v1/$this->table";
+      $this->url = $URL;
+
       // Set up the cURL request
       $this->conn = curl_init();
       curl_setopt($this->conn, CURLOPT_URL, $this->url);
@@ -149,7 +162,7 @@ class Supabase
     }
   }
 
-  public function update($table = null, int $id = null, $query = [])
+  public function updateData($table = null, int $id = null, $query = [])
   {
     if (!isset($table)) {
       echo "Please provide your Supabase table name.";
@@ -158,7 +171,10 @@ class Supabase
     } elseif (!isset($id)) {
       echo "Please provide id number.";
     } else {
-      $this->url = $this->url . "?id=eq.$id";
+      $this->table = $table;
+      $URL="$this->project_id/rest/v1/$this->table";
+      $this->url = $URL;
+      $this->url = $this->url."?id=eq.$id";
     }
 
     $headers = [
@@ -183,20 +199,24 @@ class Supabase
       echo "Error: " . curl_error($this->conn);
       curl_close($this->conn);
     } else {
-      echo "Data update successfully.";
+      echo "Data updated successfully.";
       return $result;
     }
     curl_close($this->conn);
   }
 
-  public function delete($table = null, int $id = null)
+  public function deleteData($table = null, int $id = null)
   {
     if (!isset($table)) {
       echo "Please provide your Supabase table name.";
     } elseif (!isset($id)) {
       echo "Please provide id.";
     } else {
-      $this->url = $this->url . "?id=eq.$id";
+      $this->table = $table;
+      $URL = "$this->project_id/rest/v1/$this->table";
+      $this->url = $URL;
+      
+      $this->url = $this->url."?id=eq.$id";
 
       $headers = [
         "apikey: $this->apikey",
