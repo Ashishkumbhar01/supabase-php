@@ -32,7 +32,7 @@ cp .env.example .env
 
 ```php
 <?php
-use Supabase\Supabase\Supabase;
+use Supabase\Functions;
 
 require_once __DIR__."/vendor/autoload.php";
 
@@ -45,7 +45,7 @@ $config = array(
    'apikey' => $_ENV['SB_APIKEY']
 );
 
-$client = new Supabase(
+$client = new Functions(
    $config['url'],
    $config['apikey']
 );
