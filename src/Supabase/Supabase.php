@@ -1,5 +1,6 @@
 <?php
 namespace Supabase\Supabase;
+use Exception;
 
 class Supabase
 {
@@ -10,14 +11,14 @@ class Supabase
   protected $url;
   public $data;
 
-  public function __construct($url=null, $apikey=null)
-  {
-
-    if (isset($url) && isset($apikey)) {
-     $this->apikey = $apikey;
-     $this->project_id = $url;
+  public function __construct($url=null, $apikey=null){
+    if (!isset($url)){
+      throw new Exception("Supabase URL must be specified");
+    } elseif(!isset($apikey)){
+      throw new Exception("Supabase API_KEY must be specified", 1); 
     } else {
-      echo "Please provide Supabase full Details.\r\n";
+      $this->apikey = $apikey;
+      $this->project_id = $url;
     }
 
     $URL = "$this->project_id/rest/v1/$this->table";
