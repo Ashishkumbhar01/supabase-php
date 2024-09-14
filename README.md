@@ -1,5 +1,3 @@
-### Supabase-PHP
-
 ![Supabase](https://getlogo.net/wp-content/uploads/2020/11/supabase-logo-vector.png)
 
 ![GitHub forks](https://img.shields.io/github/forks/Ashishkumbhar01/supabase-php?style=for-the-badge&logo=Github)
@@ -11,7 +9,13 @@
 
 Supabase for PHP client. Realtime database, Storage.
 
-### Example
+### Docs 
+- [Get-started](#Example-supabase)
+- [Authentication](#Auth-supabase)
+- [Storage](#storage-supabase)
+
+
+### `Example` of Supabase
 * Install Supabase client for our project.
 * Than we are require supabase-client by composer.
 
@@ -82,5 +86,9 @@ $client->deleteData($table, 20);
 ```
 * When you creating your supabase table, make sure RLS (Row Level Security) option be [×] disable. if RLS are enable [✓] maybe you getting some error so you need to use `Auth class`.
 
-### Supabase Authentication
+### Supabase `Authentication`
 * Auth Class coming soon.
+
+
+### Supabase `Storage`
+* storage class coming soon.
