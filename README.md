@@ -9,16 +9,7 @@
 
 Supabase for PHP client. Realtime database, Storage.
 
-### Docs
-<ol>
-<li><a id="#example">Get Started</a></li>
-<ol>
 
-- [Get-started](#Example-supabase)
-- [Authentication](#Auth-supabase)
-- [Storage](#storage-supabase)
-
-<p id="example">
 ### `Example` of Supabase
 
 * Install Supabase client for our project.
@@ -90,8 +81,6 @@ $client->updateData($table, $id, $data);
 $client->deleteData($table, 20);
 ```
 * When you creating your supabase table, make sure RLS (Row Level Security) option be [×] disable. if RLS are enable [✓] maybe you getting some error so you need to use `Auth class`.
-
-</p>
 
 ### Supabase `Authentication`
 * Auth Class coming soon.
