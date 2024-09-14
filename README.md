@@ -10,7 +10,7 @@
 Supabase for PHP client. Realtime database, Storage.
 
 
-### `Example` of Supabase
+### `Example`
 
 * Install Supabase client for our project.
 * Than we are require supabase-client by composer.
@@ -19,6 +19,7 @@ Supabase for PHP client. Realtime database, Storage.
 composer require supabase-php/supabase-client
 ```
 or
+
 ```bash
 composer require supabase-php/supabase-client:"dev-master"
 ```
@@ -82,9 +83,9 @@ $client->deleteData($table, 20);
 ```
 * When you creating your supabase table, make sure RLS (Row Level Security) option be [×] disable. if RLS are enable [✓] maybe you getting some error so you need to use `Auth class`.
 
-### Supabase `Authentication`
+### `Authentication`
 * Auth Class coming soon.
 
 
-### Supabase `Storage`
+### `Storage`
 * storage class coming soon.
