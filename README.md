@@ -9,7 +9,11 @@
 
 Supabase for PHP client. Realtime database, Storage.
 
-### Docs 
+### Docs
+<ol>
+<li><a id="#example">Get Started</a></li>
+<ol>
+
 - [Get-started](#Example-supabase)
 - [Authentication](#Auth-supabase)
 - [Storage](#storage-supabase)
