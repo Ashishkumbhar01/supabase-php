@@ -9,7 +9,6 @@
 
 Supabase for PHP client. Realtime database, Storage.
 
-
 ### `Example`
 
 * Install Supabase client for our project.
