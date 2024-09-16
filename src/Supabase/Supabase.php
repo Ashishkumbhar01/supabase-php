@@ -15,17 +15,19 @@ class Supabase
       throw new Exception("Supabase API_KEY must be specified"); 
     } else {
       $this->apikey = $apikey;
-      $this->url = $url;
+      $this->url = $url ."/rest/v1";
     }
   }
   
-  public function grab($url, $method, $data=null)
+  protected function grab($url, $method, $data=null)
   {
     $headers = array(
       "apikey: $this->apikey",
       "Authorization: Bearer $this->apikey",
       "Content-Type: application/json",
       "Prefer: return=minimal",
+      "Range: 0-9",
+      "Prefer: resolution=merge-duplicates"
     );
 
     $options = array(
