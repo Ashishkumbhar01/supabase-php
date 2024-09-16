@@ -7,80 +7,103 @@
 ![GitHub Release](https://img.shields.io/github/v/release/Ashishkumbhar01/supabase-php?style=for-the-badge)
 ![Packagist Downloads](https://img.shields.io/packagist/dt/supabase-php/supabase-client?style=for-the-badge&logo=composer)
 
-Supabase for PHP client. Realtime database, Storage.
+Supabase  client for PHP: Realtime database, Storage, Authentication and many more.
+When you creating your supabase table, make sure RLS (Row Level Security) option be [×] disable.
+If RLS are enable [✓] maybe you getting some error so you need to use `Auth class`.
+Auth class coming soon.
 
-### `Example`
-
+### `Install`
 * Install Supabase client for our project.
 * Than we are require supabase-client by composer.
 
 ```bash
 composer require supabase-php/supabase-client
 ```
-or
 
-```bash
-composer require supabase-php/supabase-client:"dev-master"
-```
-
-* First of all we need our `.env` file, so follow this command.
-
-```bash
-cp .env.example .env
-```
-* Following this code for your Supabase project/App.
+### `Config` 
+Supabase client for PHP configuration with your php project/web Apps.
 
 ```php
-<?php
-use Supabase\Functions;
+use Supabase\Functions as Supabase;
 
-require_once __DIR__."/vendor/autoload.php";
+// autoload the supabase class
+require_once('vendor/autoload.php');
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
-// .env config
-$config = array(
-   'url' => $_ENV['SB_URL'],
-   'apikey' => $_ENV['SB_APIKEY']
-);
-
-$client = new Functions(
-   $config['url'],
-   $config['apikey']
-);
-
-// get all data.
-$html = $client->getAllData('users');
-echo "<pre>";
-print_r($html);
-
-// get single data by using column name.
-$html=$client->getSingleData($table,'name');
-
-echo "<pre>";
-print_r($html);
-
-$data = [
-'name' => 'Sushil Kumar',
-'age' => 23
+// config
+$config = [
+  'url' => $_ENV['SB_URL'],
+  'apikey' => $_ENV['SB_APIKEY']
 ];
 
-// post data 
-$client->postData('users', $data);
-
-// Update the Data by using columns.
-$data = [
-'name' => 'sushil',
-'age' => 20
-];
-
-$client->updateData($table, $id, $data);
-
-// Delete the data using by id
-$client->deleteData($table, 20);
+$client = new Supabase($config['url'], $config['apikey']);
 ```
-* When you creating your supabase table, make sure RLS (Row Level Security) option be [×] disable. if RLS are enable [✓] maybe you getting some error so you need to use `Auth class`.
+if you did not have `.env` file so please create your `.env` file.
+
+```bash
+touch .env
+```
+
+if you create already your `.env` file then you will be derclare your enviroment variables names.
+
+```bash
+vi .env
+```
+
+```env
+SB_URL=https://rurtighghurtuhouger.supabase.co
+SB_API_KEY=utertu895tyut8trrvt8rtu8mutt84r548t894v98v5vtt6ut54uu85tu
+```
+
+### `getAllData`
+if you want to get all recorded data from your table when you saved the data then used `getAllData` function.
+
+```php
+$data = $client->getAllData('table name');
+print_r($data);
+```
+
+### `getSingleData`
+if you need a specifics data from specifics columns then you used `getSingleData` function.
+
+```php
+$data = $client->getSingleData('table name', 'column name');
+print_r($data);
+```
+
+### `postData`
+if you want to save your data to your table then used `postData` function.
+
+```php
+// posted data
+$data = [
+  'name' => 'PHP',
+  'version' => '8.3'
+];
+
+$client->postData('table name', $data);
+```
+
+### `updateData`
+if you thinks something to be wrong or outdated so you will be changing that particular value from particular columns and also you updating all the data.
+Then used `updateData` function.
+
+```php
+// updated data
+$data = [
+  'name' => 'PHP',
+  'version' => '8.4'
+];
+
+$client->updateData('table name', 'id number', $data);
+```
+
+### `deleteData`
+if you want to Delete a specificed data from the table, then used `deleteData` function.
+you needed the id number of table data.
+
+```php
+$client->deleteData('table name', 2 //id);
+```
 
 ### `Authentication`
 * Auth Class coming soon.
