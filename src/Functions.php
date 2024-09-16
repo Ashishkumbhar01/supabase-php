@@ -70,4 +70,13 @@ class Functions extends Supabase
       return $html;
     }
   }
+
+  public function pages(string $table, int $number)
+  {
+    $path = "$this->url/rest/v1/$table?";
+    $html = $this->grab($path, "GET");
+    $data = json_decode($html, true);
+    return $data;
+  }
+
 }
