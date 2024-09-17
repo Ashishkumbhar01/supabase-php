@@ -9,7 +9,7 @@ class Functions extends Supabase
     if (!isset($table)) {
       echo "Please provide your Supabase table name.";
     } else {
-      $path = "$this->url/rest/v1/$table";
+      $path = "$this->url/$table";
       $html = $this->grab($path, "GET");
       $data = json_decode($html, true);
       return $data;
@@ -23,7 +23,7 @@ class Functions extends Supabase
     } elseif(!isset($query)) {
       echo "Please provide your column name.";
     } else {
-      $path = "$this->url/rest/v1/$table?select=$query";
+      $path = "$this->url/$table?select=$query";
       $html = $this->grab($path, "GET");
       $data = json_decode($html, true);
       return $data;
@@ -37,7 +37,7 @@ class Functions extends Supabase
     } elseif (!isset($query)) {
       echo "Please provide your data.";
     } else {
-      $path = "$this->url/rest/v1/$table";
+      $path = "$this->url/$table";
       $html = $this->grab($path, "POST", json_encode($query));
       return $html;
     }
@@ -52,7 +52,7 @@ class Functions extends Supabase
     } elseif (!isset($query)) {
       echo "Please provide your data.";
     } else {
-      $path = "$this->url/rest/v1/$table?id=eq.$id";
+      $path = "$this->url/$table?id=eq.$id";
       $html = $this->grab($path, "PATCH", json_encode($query));
       return $html;
     }
@@ -65,9 +65,33 @@ class Functions extends Supabase
     } elseif (!isset($id)) {
       echo "Please provide id.";
     } else {
-      $path = "$this->url/rest/v1/$table?id=eq.$id";
+      $path = "$this->url/$table?id=eq.$id";
       $html = $this->grab($path, "DELETE");
       return $html;
     }
   }
+
+  public function pages($table=null)
+  {
+    $path = "$this->url/$table?select=*";
+    $html = $this->grab($path, "GET");
+    $data = json_decode($html, true);
+    return $data;
+  }
+
+  public function filter($table=null, int $range=null)
+  {
+    $path = "$this->url/$table?id=eq.$range&select=*";
+    $html = $this->grab($path, "GET");
+    $data = json_decode($html, true);
+    return $data;
+  }
+
+  public function matchs($table=null, $query=[])
+  {
+    $path = "$this->url/$table";
+    $html = $this->grab($path, "POST", json_encode($query));
+    return $html;
+  }
+
 }
