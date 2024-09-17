@@ -105,6 +105,29 @@ you needed the id number of table data.
 $client->deleteData('table name', 2 //id);
 ```
 
+### `Pagination`
+
+```php
+$client->pages('table name');
+```
+
+### `Filtering`
+
+```
+$client->filter('table name', 1);
+```
+
+### `Matching`
+
+```php
+$data = [
+  'name' => 'PHP',
+  'version' => '8.4'
+];
+
+$client->matchs('table name', $data);
+```
+
 ### `Authentication`
 * Auth Class coming soon.
 
