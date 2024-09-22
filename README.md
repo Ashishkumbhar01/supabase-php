@@ -7,9 +7,10 @@
 ![GitHub Release](https://img.shields.io/github/v/release/Ashishkumbhar01/supabase-php?style=for-the-badge)
 ![Packagist Downloads](https://img.shields.io/packagist/dt/supabase-php/supabase-client?style=for-the-badge&logo=composer)
 
-Supabase  client for PHP: Realtime database, Storage, Authentication and many more.
-When you creating your supabase table, make sure RLS (Row Level Security) option be [×] disable.
-If RLS are enable [✓] maybe you getting some error so you need to use `Auth class`.
+Supabase  client for PHP:
+- Realtime database, Storage, Authentication and many more.
+- When you creating your supabase table, make sure RLS (Row Level Security) option be [×] disable.
+- If RLS are enable [✓] maybe you getting some error so you need to use `Auth class`.
 Auth class coming soon.
 
 ### `Install`
@@ -20,7 +21,7 @@ Auth class coming soon.
 composer require supabase-php/supabase-client
 ```
 
-### `Config` 
+### Config
 Supabase client for PHP configuration with your php project/web Apps.
 
 ```php
@@ -54,7 +55,7 @@ SB_URL=https://rurtighghurtuhouger.supabase.co
 SB_API_KEY=utertu895tyut8trrvt8rtu8mutt84r548t894v98v5vtt6ut54uu85tu
 ```
 
-### `getAllData`
+### `getAllData()`
 if you want to get all recorded data from your table when you saved the data then used `getAllData` function.
 
 ```php
@@ -62,7 +63,7 @@ $data = $client->getAllData('table name');
 print_r($data);
 ```
 
-### `getSingleData`
+### `getSingleData()`
 if you need a specifics data from specifics columns then you used `getSingleData` function.
 
 ```php
@@ -70,7 +71,7 @@ $data = $client->getSingleData('table name', 'column name');
 print_r($data);
 ```
 
-### `postData`
+### `postData()`
 if you want to save your data to your table then used `postData` function.
 
 ```php
@@ -83,7 +84,7 @@ $data = [
 $client->postData('table name', $data);
 ```
 
-### `updateData`
+### `updateData()`
 if you thinks something to be wrong or outdated so you will be changing that particular value from particular columns and also you updating all the data.
 Then used `updateData` function.
 
@@ -97,7 +98,7 @@ $data = [
 $client->updateData('table name', 'id number', $data);
 ```
 
-### `deleteData`
+### `deleteData()`
 if you want to Delete a specificed data from the table, then used `deleteData` function.
 you needed the id number of table data.
 
@@ -105,19 +106,19 @@ you needed the id number of table data.
 $client->deleteData('table name', 2 //id);
 ```
 
-### `Pagination`
+### `Pagination()`
 
 ```php
 $client->pages('table name');
 ```
 
-### `Filtering`
+### `Filtering()`
 
 ```
 $client->filter('table name', 1);
 ```
 
-### `Matching`
+### `Matching()`
 
 ```php
 $data = [
@@ -128,9 +129,9 @@ $data = [
 $client->matchs('table name', $data);
 ```
 
-### `Authentication`
+### Authentication
 * Auth Class coming soon.
 
 
-### `Storage`
+### Storage
 * storage class coming soon.
