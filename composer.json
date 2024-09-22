@@ -37,6 +37,11 @@
           "role": "Developer"
         }
     ],
+    "scripts": {
+      "test": [
+        "@php vendor/bin/phpstan analyse src tests --ansi"
+      ]
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
