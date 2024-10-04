@@ -1,7 +1,9 @@
 <?php
 namespace Supabase\Storage;
 
-class Storage
+use Supabase\Supabase\Supabase;
+
+class Storage extends Supabase
 {
   private $files;
 
@@ -14,7 +16,7 @@ class Storage
       return "please provide Table name.";
     }
 
-    $extenions = ['txt','pdf','ppt','json','csv','mp3','mp4','ogg','webp','png','jpg','jpeg','gif','svg'];
+    $extensions = ['txt', 'pdf', 'pptx', 'xlsx', 'docs', 'zip', 'csv', 'mp3', 'mp4', 'ogg', 'webp', 'png', 'jpg', 'jpeg', 'gif', 'svg'];
 
   }
   
