@@ -1,11 +1,12 @@
 ![Supabase](https://getlogo.net/wp-content/uploads/2020/11/supabase-logo-vector.png)
 
-![GitHub forks](https://img.shields.io/github/forks/Ashishkumbhar01/supabase-php?style=for-the-badge&logo=Github)
-![GitHub License](https://img.shields.io/github/license/Ashishkumbhar01/supabase-php?style=for-the-badge)
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/Ashishkumbhar01?style=for-the-badge&logo=Github%20Sponsors&label=Support%20me)](https://github.com/sponsors/Ashishkumbhar01)
 ![GitHub Repo stars](https://img.shields.io/github/stars/CodeWithSushil/supabase-client?style=for-the-badge&logo=Github)
-![GitHub Release](https://img.shields.io/github/v/release/Ashishkumbhar01/supabase-php?style=for-the-badge)
 ![Packagist Downloads](https://img.shields.io/packagist/dt/supabase-php/supabase-client?style=for-the-badge&logo=composer)
+![GitHub Release](https://img.shields.io/github/v/release/Ashishkumbhar01/supabase-php?style=for-the-badge)
+![GitHub License](https://img.shields.io/github/license/Ashishkumbhar01/supabase-php?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/Ashishkumbhar01/supabase-php?style=for-the-badge&logo=Github)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/Ashishkumbhar01?style=for-the-badge&logo=Github%20Sponsors&label=Support%20me)](https://github.com/sponsors/Ashishkumbhar01)
+
 
 Supabase  client for PHP:
 - Realtime database, Storage, Authentication and many more.
