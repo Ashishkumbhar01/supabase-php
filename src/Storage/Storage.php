@@ -7,7 +7,7 @@ class Storage extends Supabase
 {
   private $files;
 
-  private function FilesType($files,$table)
+  private function FilesType($files, $table)
   {
     if(!isset($files)){
       return "File not selected.";
