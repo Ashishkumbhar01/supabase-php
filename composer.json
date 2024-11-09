@@ -14,7 +14,8 @@
         "symfony/polyfill-php80": "^1.31",
         "symfony/polyfill-ctype": "^1.31",
         "symfony/polyfill-mbstring": "^1.31",
-        "phpunit/phpunit": "^11.4"
+        "phpunit/phpunit": "^11.4",
+        "pestphp/pest": "^3.5"
     },
     "license": "MIT",
     "autoload": {
@@ -45,5 +46,10 @@
       ]
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
 }
