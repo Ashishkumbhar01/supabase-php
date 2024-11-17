@@ -19,7 +19,7 @@ Auth class coming soon.
 * Than we are require supabase-client by composer.
 
 ```bash
-composer require supabase-php/supabase-client
+composer require supabase-php/supabase-client:"1.0.4"
 ```
 
 ### Config
@@ -136,3 +136,19 @@ $client->matchs('table name', $data);
 
 ### Storage
 * storage class coming soon.
+* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
