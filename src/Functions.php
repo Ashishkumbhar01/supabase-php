@@ -1,6 +1,6 @@
 <?php
 namespace Supabase;
-use Supabase\Supabase\Supabase;
+use Supabase\Supabase;
 
 class Functions extends Supabase
 {

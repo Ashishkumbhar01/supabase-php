@@ -1,5 +1,5 @@
 <?php
-namespace Supabase\Supabase;
+namespace Supabase;
 use Exception;
 
 class Supabase
