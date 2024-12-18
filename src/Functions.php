@@ -43,7 +43,7 @@ class Functions extends Supabase
     }
   }
 
-  public function updateData($table=null, int $id=null, $query=[])
+  public function updateData($table=null, ?int $id=null, $query=[])
   {
     if (!isset($table)) {
       echo "Please provide your Supabase table name.";
@@ -58,7 +58,7 @@ class Functions extends Supabase
     }
   }
 
-  public function deleteData($table=null, int $id=null)
+  public function deleteData($table=null, ?int $id=null)
   {
     if (!isset($table)) {
       echo "Please provide your Supabase table name.";
@@ -79,7 +79,7 @@ class Functions extends Supabase
     return $data;
   }
 
-  public function filter($table=null, int $range=null)
+  public function filter($table=null, ?int $range=null)
   {
     $path = "$this->url/$table?id=eq.$range&select=*";
     $html = $this->grab($path, "GET");
