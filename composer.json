@@ -5,7 +5,8 @@
     "version": "1.0.5",
     "type": "library",
     "require": {
-      "php": "^7.0||^8.0"
+      "php": "^7.0||^8.0",
+        "guzzlehttp/guzzle": "^7.9"
     },
     "license": "MIT",
     "autoload": {
