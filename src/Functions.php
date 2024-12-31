@@ -30,17 +30,23 @@ class Functions extends Supabase
     }
   }
 
-  public function postData($table=null, $query=[])
+  public function postData($table=null, $query=[], $on_conflict=null)
   {
-    if (!isset($table)) {
-      echo "Please provide your Supabase table name.";
-    } elseif (!isset($query)) {
-      echo "Please provide your data.";
-    } else {
-      $path = "$this->url/$table";
-      $html = $this->grab($path, "POST", json_encode($query));
-      return $html;
-    }
+	if (!isset($table)) {
+	  echo "Please provide your Supabase table name.";
+	} elseif (!isset($query)) {
+	  echo "Please provide your data.";
+	} else {
+	  // If $on_conflict is provided, append to the path
+	  if (!empty($on_conflict)) {
+		$path = "$this->url/$table?on_conflict=$on_conflict";
+	  } else {
+		$path = "$this->url/$table";
+	  }
+
+	  $html = $this->grab($path, "POST", json_encode($query));
+	  return $html;
+	}
   }
 
   public function updateData($table=null, ?int $id=null, $query=[])
