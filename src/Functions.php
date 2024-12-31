@@ -45,8 +45,8 @@ class Functions extends Supabase
 	  }
 
 	  $html = $this->grab($path, "POST", json_encode($query));
-	  return $html;
-	}
+    return $html;
+  }
   }
 
   public function updateData($table=null, ?int $id=null, $query=[])

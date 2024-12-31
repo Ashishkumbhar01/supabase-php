@@ -28,7 +28,6 @@ class Supabase
       "Authorization: Bearer $this->apikey",
       'Content-Type: application/json',
       'Accept: application/json',
-      'Content-Type: application/x-www-form-urlencoded',
       'Prefer: return=minimal',
       'Range: 0-9',
       'Prefer: resolution=merge-duplicates'
