@@ -33,6 +33,8 @@ class Supabase
     $options = array(
       CURLOPT_URL => $url,
       CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_SSL_VERIFYPEER => true,
+      CURLOPT_SSL_VERIFYHOST => 2,
       CURLOPT_HTTPHEADER => $headers,
       CURLOPT_CUSTOMREQUEST => $method,
       CURLOPT_TIMEOUT => 120,
