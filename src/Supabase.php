@@ -21,7 +21,7 @@ class Supabase
     }
   }
   
-  protected function grab($url, $method, $data=null)
+  protected function grab(string $url, string $method, ?string $data=null)
   {
     $headers = array(
       "apikey: $this->apikey",
