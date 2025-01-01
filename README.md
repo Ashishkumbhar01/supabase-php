@@ -82,7 +82,8 @@ $data = [
   'version' => '8.3'
 ];
 
-$client->postData('table name', $data);
+$client->postData('table name', $data, 'id');
+// 3rd option on_conflict
 ```
 
 ### `updateData()`

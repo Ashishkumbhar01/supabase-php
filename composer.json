@@ -1,8 +1,8 @@
 {
-    "name": "supabase-php/supabase-client",
-    "description": "Supabase for PHP client.",
-    "keywords": ["supabase","supabase-php","supabase-client"],
-    "version": "1.0.7",
+  "$schema": "https://getcomposer.org/schem     a.json",
+  "name": "supabase-php/supabase-client",
+  "description": "Supabase for PHP client.",
+  "keywords": ["supabase","supabase-php","supabase-client"],
     "type": "library",
     "require": {
       "php": "^8.2",
@@ -43,5 +43,8 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
-    }
+    },
+  "require-dev": {
+    "phpstan/phpstan": "^2.0"
+  }
 }
