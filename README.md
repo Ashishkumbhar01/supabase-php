@@ -19,6 +19,8 @@ Auth class coming soon.
 * Than we are require supabase-client by composer.
 
 ```bash
+composer require supabase-php/supabase-client      # letest
+# OR Downloads old version
 composer require supabase-php/supabase-client:"1.0.4"
 ```
 
