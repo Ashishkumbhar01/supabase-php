@@ -50,7 +50,7 @@ class Supabase
     $ch = curl_init();
     curl_setopt_array($ch, $options);
     if(isset($data)){
-      curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
     }
     $html = curl_exec($ch);
     return $html;
