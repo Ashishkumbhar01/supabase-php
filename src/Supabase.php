@@ -11,6 +11,12 @@ class Supabase
 
   public function __construct(?string $url=null, ?string $apikey=null)
   {
+    if(!filter_var($url, FILTER_VALIDATE_URL))
+    {
+      echo "Invalid URL format";
+      exit();
+    }
+
     if (!isset($url)){
       throw new Exception("Supabase URL must be specified");
     } elseif(!isset($apikey)){
@@ -35,11 +41,15 @@ class Supabase
 
     $options = array(
       CURLOPT_URL => $url,
+      CURLOPT_NOBODY => false,
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_SSL_VERIFYPEER => true,
       CURLOPT_SSL_VERIFYHOST => 2,
+      CURLOPT_SSL_OPTIONS => CURLSSLOPT_NATIVE_CA,
+      CURLOPT_FOLLOWLOCATION => true,
       CURLOPT_HTTPHEADER => $headers,
       CURLOPT_CUSTOMREQUEST => $method,
+      CURLOPT_MAXREDIRS => 10,
       CURLOPT_TIMEOUT => 30,
       CURLOPT_ENCODING => "",
       CURLOPT_CONNECTTIMEOUT => 10,
