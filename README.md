@@ -14,10 +14,15 @@ Supabase  client for PHP:
 - If RLS are enable [✓] maybe you getting some errors.
 
 <details>
-<summary> ### ⚠️ Warning </summary>
-<p>if you push the code to production while Row-Level Security (RLS) is disabled, it can pose a security threat to your application. To secure your app, please enable Row-Level Security. Otherwise, write an Object-Oriented PDO connection with PostgreSQL.</p>
+<summary>
+<h2> ⚠️ Warning <h2>
+<summary>
+<p><b><i>
+if you push the code to production while Row-Level Security (RLS) is disabled, it can pose a security threat to your application. To secure your app, please enable Row-Level Security. Otherwise, write an Object-Oriented PDO connection with PostgreSQL.
+</i></b>
+</p>
 
- ### example code.
+### Env config code:
  ```env
 HOST=aws-o-ap-south-pool.supabase.com
 PORT=6543
