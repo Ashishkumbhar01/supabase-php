@@ -11,8 +11,22 @@
 Supabase  client for PHP:
 - Realtime database, Storage, Authentication and many more.
 - When you creating your supabase table, make sure RLS (Row Level Security) option be [×] disable.
-- If RLS are enable [✓] maybe you getting some error so you need to use `Auth class`.
-Auth class coming soon.
+- If RLS are enable [✓] maybe you getting some errors.
+
+<details>
+<summary>⚠️ Warning</summary>
+<p>If you push the code to production while Row-Level Security (RLS) is disabled, it can pose a security threat to your application. To secure your app, please enable Row-Level Security. Otherwise, write an Object-Oriented PDO connection with PostgreSQL.</p>
+
+example code.
+```php
+HOST="https://iredidiekj.supabase.co/"
+PORT=5432
+USERNAME=root
+PASSWORD=Eufiedirjci48fu4idie
+DATABASE=test
+```
+</details>
+
 
 ### `Install`
 * Install Supabase client for our project.
