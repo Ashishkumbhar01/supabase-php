@@ -13,9 +13,9 @@ Supabase  client for PHP:
 - When you creating your supabase table, make sure RLS (Row Level Security) option be [×] disable.
 - If RLS are enable [✓] maybe you getting some errors.
 
-
- ### ⚠️ Warning  
->>> If you push the code to production while Row-Level Security (RLS) is disabled, it can pose a security threat to your application. To secure your app, please enable Row-Level Security. Otherwise, write an Object-Oriented PDO connection with PostgreSQL.</p>
+<details>
+<summary> ### ⚠️ Warning 
+If you push the code to production while Row-Level Security (RLS) is disabled, it can pose a security threat to your application. To secure your app, please enable Row-Level Security. Otherwise, write an Object-Oriented PDO connection with PostgreSQL.</p>
 
  ### example code.
  ```env
