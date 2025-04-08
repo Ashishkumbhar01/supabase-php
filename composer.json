@@ -42,7 +42,8 @@
     "config": {
         "allow-plugins": {
             "pestphp/pest-plugin": true
-        }
+        },
+        "preferred-install": "dist"
     },
   "require-dev": {
     "phpstan/phpstan": "^2.1"
