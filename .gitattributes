@@ -27,9 +27,19 @@ LICENSE -diff
 
 # Exclude files from `git archive` (useful when packaging a release)
 .env export-ignore
-/tests export-ignore
-/.github export-ignore
-/.gitignore export-ignore
-/.gitattributes export-ignore
-/vendor export-ignore
-/example export-ignore
+/tests/ export-ignore
+.github export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
+/vendor/ export-ignore
+/example/ export-ignore
+CODE_OF_CONDUCT.md export-ignore
+CHANGELOG.md export-ignore
+README.md export-ignore
+index.php export-ignore
+phpunit.xml export-ignore
+composer.json export-ignore
+composer.lock export-ignore
+.editorconfig export-ignore
+.env.example export-ignore
+LICENSE export-ignore
