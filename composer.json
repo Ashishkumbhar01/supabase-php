@@ -30,10 +30,8 @@
         }
     },
     "support": {
-        "source": "https://github.com/CodeWithSushil/supabase-client/archive/refs/tags/v1.1.2.zip",
-        "issues": "https://github.com/CodeWithSushil/supabase-client/issues",
-        "wiki": "https://github.com/CodeWithSushil/supabase-client/wiki",
-        "forum": "https://github.com/CodeWithSushil/supabase-client/discussions"
+        "source": "https://github.com/CodeWithSushil/supabase-client/releases",
+        "issues": "https://github.com/CodeWithSushil/supabase-client/issues"
     },
     "authors": [
         {
@@ -49,7 +47,7 @@
     ],
     "funding": [
         {
-            "type": "Opencollective",
+            "type": "Open Collective",
             "url": "https://opencollective.com/CodeWithSushil"
         }
     ],
