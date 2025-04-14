@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
-namespace Supabase;
+namespace Supabase\Client;
 
-class Exception{
+class Exceptions extends Exception {
   public static function Error()
   {
     throw new Exception('Error');
-  } 
+  }
 };

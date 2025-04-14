@@ -1,21 +1,38 @@
 # Security Policy
 
-## Supported Versions
-
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+Thank you for helping keep `Supabase-php/Supabase-client` secure!
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you discover a security vulnerability within this project, we strongly encourage you to report it responsibly.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Please **do not open a public issue**. Instead, contact us privately at:
+
+- **Email:** sushilkumbhar77@gmail.com
+
+We aim to respond within **48 hours** and will work with you to verify and address the vulnerability promptly.
+
+## Disclosure Policy
+
+- We will acknowledge receipt of your report within 1–2 business days.
+- We will confirm the validity of the issue and plan a timeline for the fix.
+- A fix will be released and a public disclosure will be made only after the patch is available.
+
+## Supported Versions
+
+| Version            | Supported          |
+| ------------------ | ------------------ |
+| `1.1.2` (latest)     | ✅ Supported       |
+| `< 1.0.0` (legacy)   | ❌ Not maintained  |
+
+## Scope
+
+This policy applies to the core `Supabase-php/Supabase-client` repository only. Issues related to external dependencies should be reported to their respective maintainers.
+
+## Preferred Languages
+
+Please submit vulnerability reports in **English** if possible.
+
+---
+
+We appreciate responsible disclosures and your effort to make the open-source ecosystem safer.

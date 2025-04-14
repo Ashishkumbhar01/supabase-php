@@ -1,24 +1,37 @@
 {
-  "$schema": "https://getcomposer.org/schem     a.json",
-  "name": "supabase-php/supabase-client",
-  "description": "Supabase for PHP client.",
-  "keywords": ["supabase","supabase-php","supabase-client"],
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "supabase-php/supabase-client",
+    "description": "Supabase for PHP client.",
+    "keywords": [
+        "supabase",
+        "supabase-php",
+        "supabase-client",
+        "supabase-sdk"
+    ],
     "type": "library",
     "require": {
-      "php": "^8.2",
-        "guzzlehttp/guzzle": "^7.9",
-        "vlucas/phpdotenv": "^5.6"
+        "php": "^8.2.0",
+        "vlucas/phpdotenv": "^5.6",
+        "jerome/fetch-php": "^2.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^3.8",
+        "phpstan/phpstan": "^2.1"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Supabase\\": "src/"
+            "Supabase\\Client\\": "src/"
         }
     },
     "autoload-dev": {
-      "psr-4": {
-        "Tests\\": "tests/"
-      }
+        "psr-4": {
+            "Supabase\\Tests\\": "tests/"
+        }
+    },
+    "support": {
+        "source": "https://github.com/CodeWithSushil/supabase-client/releases",
+        "issues": "https://github.com/CodeWithSushil/supabase-client/issues"
     },
     "authors": [
         {
@@ -32,20 +45,20 @@
           "role": "Developer"
         }
     ],
-    "scripts": {
-      "test": [
-        "@php vendor/bin/phpstan analyse src tests --ansi"
-      ]
-    },
+    "funding": [
+        {
+            "type": "Open Collective",
+            "url": "https://opencollective.com/CodeWithSushil"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "preferred-install": "dist",
         "allow-plugins": {
             "pestphp/pest-plugin": true
-        },
-        "preferred-install": "dist"
-    },
-  "require-dev": {
-    "phpstan/phpstan": "^2.1"
-  }
+        }
+    }
 }
