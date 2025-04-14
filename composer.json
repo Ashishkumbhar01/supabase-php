@@ -30,8 +30,10 @@
         }
     },
     "support": {
-        "source": "https://github.com/CodeWithSushil/supabase-client",
-        "issues": "https://github.com/CodeWithSushil/supabase-client/issues"
+        "source": "https://github.com/CodeWithSushil/supabase-client/release",
+        "issues": "https://github.com/CodeWithSushil/supabase-client/issues",
+        "wiki": "https://github.com/CodeWithSushil/supabase-client/wiki",
+        "forum": "https://github.com/CodeWithSushil/supabase-client/discussions"
     },
     "authors": [
         {
