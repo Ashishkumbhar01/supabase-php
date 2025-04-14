@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
-namespace Supabase;
-use Supabase\Supabase;
+namespace Supabase\Client;
+use Supabase\Client\Supabase;
 
 class Functions extends Supabase
 {

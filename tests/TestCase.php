@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Supabase\Tests;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
 

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Supabase;
+namespace Supabase\Client;
 use Exception;
 
 class Supabase
@@ -20,13 +20,13 @@ class Supabase
     if (!isset($url)){
       throw new Exception("Supabase URL must be specified");
     } elseif(!isset($apikey)){
-      throw new Exception("Supabase API_KEY must be specified"); 
+      throw new Exception("Supabase API_KEY must be specified");
     } else {
       $this->apikey = $apikey;
       $this->url = $url ."/rest/v1";
     }
   }
-  
+
   protected function grab(string $url, string $method, ?string $data=null)
   {
     $headers = array(
@@ -69,10 +69,10 @@ class Supabase
       $error = curl_error($ch);
       echo json_encode($error, JSON_PRETTY_PRINT);
     }
-    
-    // Validate HTTP status code 
+
+    // Validate HTTP status code
     $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    
+
     if ($http_code !== 200) {
     echo "Request failed with status code $http_code";
     curl_close($ch);
