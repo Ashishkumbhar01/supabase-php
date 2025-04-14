@@ -44,7 +44,7 @@ DATABASE=postgres
 ```bash
 composer require supabase-php/supabase-client      # letest
 # OR Downloads old version
-composer require supabase-php/supabase-client:"1.0.4"
+composer require supabase-php/supabase-client:"1.1.0"
 ```
 
 ### Config
