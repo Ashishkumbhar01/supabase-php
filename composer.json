@@ -26,7 +26,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Supabase\\Tests\\": "tests/"
+            "Tests\\": "tests/"
         }
     },
     "support": {
@@ -51,6 +51,17 @@
             "url": "https://opencollective.com/CodeWithSushil"
         }
     ],
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "test:unit": "pest --colors=always --parallel",
+        "test:types": "phpstan analyse --ansi",
+        "test": [
+            "@test:unit",
+            "@test:types"
+        ]
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
