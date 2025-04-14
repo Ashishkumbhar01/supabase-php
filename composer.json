@@ -1,6 +1,13 @@
 {
+    "$schema": "https://getcomposer.org/schema.json",
     "name": "supabase-php/supabase-client",
-    "description": "Supabase client for PHP.",
+    "description": "Supabase for PHP client.",
+    "keywords": [
+        "supabase",
+        "supabase-php",
+        "supabase-client",
+        "supabase-sdk"
+    ],
     "type": "library",
     "require": {
         "vlucas/phpdotenv": "^5.6",
@@ -13,17 +20,37 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "SupabasePhp\\SupabaseClient\\": "src/"
+            "Supabase\\Client\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Supabase\\Tests\\": "tests/"
+        }
+    },
+    "support": {
+        "source": "https://github.com/CodeWithSushil/supabase-client",
+        "issues": "https://github.com/CodeWithSushil/supabase-client/issues"
     },
     "authors": [
         {
             "name": "Sushil Kumar",
-            "email": "sushilkumbhar77@gmail.com"
+            "email": "sushilkumbhar77@gmail.com",
+            "role": "Developer"
         }
     ],
-    "minimum-stability": "stable",
+    "funding": [
+        {
+            "type": "Opencollective",
+            "url": "https://opencollective.com/CodeWithSushil"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "preferred-install": "dist",
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
