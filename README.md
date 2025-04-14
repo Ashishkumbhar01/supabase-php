@@ -44,7 +44,7 @@ DATABASE=postgres
 ```bash
 composer require supabase-php/supabase-client
 ```
-- if you getting errors than download older version
+- If you are getting error on using latest version of Supabase client then you should download older version of Supabase
 ```bash
 composer require supabase-php/supabase-client:"1.1.0"
 ```
