@@ -1,0 +1,31 @@
+{
+    "name": "supabase-php/supabase-client",
+    "description": "Supabase client for PHP.",
+    "type": "library",
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "jerome/fetch-php": "^2.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^3.8",
+        "phpstan/phpstan": "^2.1"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "SupabasePhp\\SupabaseClient\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sushil Kumar",
+            "email": "sushilkumbhar77@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
