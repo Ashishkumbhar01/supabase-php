@@ -42,8 +42,10 @@ DATABASE=postgres
 * Than we are require supabase-client by composer.
 
 ```bash
-composer require supabase-php/supabase-client      # letest
-# OR Downloads old version
+composer require supabase-php/supabase-client
+```
+- if you getting errors than download older version
+```bash
 composer require supabase-php/supabase-client:"1.1.0"
 ```
 
