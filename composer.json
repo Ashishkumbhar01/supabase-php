@@ -16,7 +16,8 @@
     },
     "require-dev": {
         "pestphp/pest": "^3.8",
-        "phpstan/phpstan": "^2.1"
+        "phpstan/phpstan": "^2.1",
+        "rector/rector": "2.0.1"
     },
     "license": "MIT",
     "autoload": {
@@ -26,7 +27,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Supabase\\Tests\\": "tests/"
+            "Tests\\": "tests/"
         }
     },
     "support": {
@@ -51,6 +52,19 @@
             "url": "https://opencollective.com/CodeWithSushil"
         }
     ],
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "test:refactor": "rector --dry-run",
+        "test:unit": "pest --colors=always --parallel",
+        "test:types": "phpstan analyse --ansi",
+        "test": [
+            "@test:unit",
+            "@test:types",
+            "@test:refactor"
+        ]
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
