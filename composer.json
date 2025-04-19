@@ -55,11 +55,11 @@
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
-        "test:unit": "pest --colors=always --parallel",
-        "test:types": "phpstan analyse --ansi",
-        "test": [
-            "@test:unit",
-            "@test:types"
+        "unit": "phpunit",
+        "types": "phpstan analyse --ansi",
+        "tests": [
+            "@unit",
+            "@types"
         ]
     },
     "minimum-stability": "dev",
