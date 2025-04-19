@@ -57,9 +57,8 @@
         ],
         "unit": "phpunit",
         "types": "phpstan analyse --ansi",
-        "tests": [
-            "@unit",
-            "@types"
+        "test": [
+            "@unit"
         ]
     },
     "minimum-stability": "dev",
