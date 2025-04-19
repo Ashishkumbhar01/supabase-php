@@ -43,3 +43,4 @@ composer.lock export-ignore
 .editorconfig export-ignore
 .env.example export-ignore
 LICENSE export-ignore
+/.phpunit.cache/ export-ignore

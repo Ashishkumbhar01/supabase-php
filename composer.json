@@ -15,8 +15,8 @@
         "jerome/fetch-php": "^2.0"
     },
     "require-dev": {
-        "pestphp/pest": "^3.8",
-        "phpstan/phpstan": "^2.1"
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^12.1"
     },
     "license": "MIT",
     "autoload": {
@@ -55,11 +55,10 @@
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
-        "test:unit": "pest --colors=always --parallel",
-        "test:types": "phpstan analyse --ansi",
+        "unit": "phpunit",
+        "types": "phpstan analyse --ansi",
         "test": [
-            "@test:unit",
-            "@test:types"
+            "@unit"
         ]
     },
     "minimum-stability": "dev",
