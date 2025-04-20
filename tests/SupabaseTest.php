@@ -15,7 +15,7 @@ class SupabaseTest extends TestCase
     public function setUp() :void
     {
         parent::setUp();
-        $keys = EnvSetup::env(__DIR__.'/../');
+        $keys = EnvSetup::env(__DIR__.'/../','.env.example');
         $key = $keys['API_KEY'];
         $url = $keys['URL'];
 
