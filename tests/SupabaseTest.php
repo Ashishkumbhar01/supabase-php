@@ -14,8 +14,8 @@ class SupabaseTest extends TestCase
     #[Test]
     public function connected()
     {
-        $dotenv = Dotenv::createImmutable(__DIR__);
-        $dotenv->safeLoad();
+        $dotenv = Dotenv::createImmutable(__DIR__."/../");
+        $dotenv->load();
 
         $config = [
             'url' => $_ENV['URL'],
@@ -24,6 +24,6 @@ class SupabaseTest extends TestCase
 
         $client = new Supabase($config['url'], $config['apikey']);
         $this->assertInstanceOf(Supabase::class, $client);
-       // $this->assertTrue($client->getAllData('Users'));
+        // $this->assertTrue($client->getAllData('Users'));
     }
 }
