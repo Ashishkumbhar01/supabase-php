@@ -5,10 +5,10 @@ namespace Tests;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use Supabase\Client\Functions as Supabase;
-use Supabase\Client\Util\EnvSetup;
+use Supabase\Functions as Supabase;
+use Supabase\Util\EnvSetup;
 
-#[CoversClass(Functions::class)]
+#[CoversClass(Supabase::class)]
 class SupabaseTest extends TestCase
 {
     #[Test]
