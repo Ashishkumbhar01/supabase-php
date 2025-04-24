@@ -21,7 +21,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Supabase\\Client\\": "src/"
+            "Supabase\\": "src/"
         }
     },
     "autoload-dev": {
@@ -55,10 +55,11 @@
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
-        "unit": "phpunit",
-        "types": "phpstan analyse --ansi",
+        "test:unit": "phpunit",
+        "test:type": "phpstan analyse --ansi",
         "test": [
-            "@unit"
+            "@test:unit",
+            "@test:type"
         ]
     },
     "minimum-stability": "dev",

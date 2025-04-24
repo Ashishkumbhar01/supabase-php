@@ -5,25 +5,21 @@ namespace Tests;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use Supabase\Client\Functions as Supabase;
-use Dotenv\Dotenv;
+use Supabase\Functions as Supabase;
+use Supabase\Util\EnvSetup;
 
-#[CoversClass(Functions::class)]
+#[CoversClass(Supabase::class)]
 class SupabaseTest extends TestCase
 {
     #[Test]
-    public function connected()
+    public function setUp() :void
     {
-        $dotenv = Dotenv::createImmutable(__DIR__);
-        $dotenv->safeLoad();
+        parent::setUp();
+        $keys = EnvSetup::env(__DIR__.'/../');
+        $key = $keys['API_KEY'];
+        $url = $keys['URL'];
 
-        $config = [
-            'url' => $_ENV['URL'],
-            'apikey' => $_ENV['APIKEY']
-        ];
-
-        $client = new Supabase($config['url'], $config['apikey']);
+        $client = new Supabase($url, $key);
         $this->assertInstanceOf(Supabase::class, $client);
-       // $this->assertTrue($client->getAllData('Users'));
     }
 }
