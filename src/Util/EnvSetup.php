@@ -1,5 +1,6 @@
 <?php
-namespace Supabase\Client\Util;
+namespace Supabase\Util;
+
 use Dotenv\Dotenv;
 
 class EnvSetup
