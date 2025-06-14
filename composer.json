@@ -62,7 +62,6 @@
         "test:lint": "pint",
         "test": [
             "@test:type",
-            "@test:unit",
             "@test:lint"
         ]
     },

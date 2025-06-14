@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
@@ -9,7 +11,7 @@ use Supabase\Client;
 class Setup extends TestCase
 {
     #[Test]
-    public function testConstructorSetsUrlAndApiKey(): void
+    public function test_constructor_sets_url_and_api_key(): void
     {
         $url = 'https://test.supabase.io';
         $apiKey = 'test-api-key';
