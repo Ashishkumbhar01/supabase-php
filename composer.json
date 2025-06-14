@@ -15,6 +15,7 @@
         "vlucas/phpdotenv": "^5.6"
     },
     "require-dev": {
+        "laravel/pint": "^1.22",
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-phpunit": "^2.0",
         "phpunit/phpunit": "^12.2"
@@ -58,9 +59,11 @@
         ],
         "test:unit": "phpunit",
         "test:type": "phpstan analyse --ansi --no-progress",
+        "test:lint": "pint",
         "test": [
             "@test:type",
-            "@test:unit"
+            "@test:unit",
+            "@test:lint"
         ]
     },
     "minimum-stability": "dev",
