@@ -59,7 +59,8 @@
         "test:unit": "phpunit",
         "test:type": "phpstan analyse --ansi --no-progress",
         "test": [
-            "@test:type"
+            "@test:type",
+            "@test:unit"
         ]
     },
     "minimum-stability": "dev",
