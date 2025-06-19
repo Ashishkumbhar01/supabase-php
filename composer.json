@@ -1,7 +1,7 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
     "name": "supabase-php/supabase-client",
-    "description": "Supabase for PHP client.",
+    "description": "Supabase client for PHP.",
     "keywords": [
         "supabase",
         "supabase-php",
@@ -11,8 +11,7 @@
     "type": "library",
     "require": {
         "php": "^8.2.0",
-        "vlucas/phpdotenv": "^5.6",
-        "jerome/fetch-php": "^2.0"
+        "vlucas/phpdotenv": "^5.6"
     },
     "require-dev": {
         "pestphp/pest": "^3.8",
