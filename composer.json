@@ -54,5 +54,11 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
+    },
+    "require-dev": {
+        "laravel/pint": "^1.22",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^12.2",
+        "rector/rector": "*"
     }
 }
