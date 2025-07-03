@@ -58,7 +58,6 @@
     "require-dev": {
         "laravel/pint": "^1.22",
         "phpstan/phpstan": "^2.1",
-        "phpunit/phpunit": "^12.2",
-        "rector/rector": "*"
+        "phpunit/phpunit": "^12.2"
     }
 }
