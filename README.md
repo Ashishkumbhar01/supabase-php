@@ -28,6 +28,7 @@ Otherwise, write an Object-Oriented PDO connection with PostgreSQL.
 > PASSWORD=[Your Password]
 > DATABASE=postgres
 > ```
+
 ---
 
 ### `Install`
@@ -39,6 +40,8 @@ composer require supabase-php/supabase-client      # letest
 # OR Downloads old version
 composer require supabase-php/supabase-client:"1.0.4"
 ```
+
+---
 
 ### Config
 Supabase client for PHP configuration with your php project/web Apps.
@@ -74,6 +77,8 @@ SB_URL=https://rurtighghurtuhouger.supabase.co
 SB_API_KEY=utertu895tyut8trrvt8rtu8mutt84r548t894v98v5vtt6ut54uu85tu
 ```
 
+---
+
 ### `getAllData()`
 if you want to get all recorded data from your table when you saved the data then used `getAllData` function.
 
@@ -82,6 +87,8 @@ $data = $client->getAllData('table name');
 print_r($data);
 ```
 
+---
+
 ### `getSingleData()`
 if you need a specifics data from specifics columns then you used `getSingleData` function.
 
@@ -89,6 +96,8 @@ if you need a specifics data from specifics columns then you used `getSingleData
 $data = $client->getSingleData('table name', 'column name');
 print_r($data);
 ```
+
+---
 
 ### `postData()`
 if you want to save your data to your table then used `postData` function.
@@ -104,6 +113,8 @@ $client->postData('table name', $data, 'id');
 // 3rd option on_conflict
 ```
 
+---
+
 ### `updateData()`
 if you thinks something to be wrong or outdated so you will be changing that particular value from particular columns and also you updating all the data.
 Then used `updateData` function.
@@ -118,6 +129,8 @@ $data = [
 $client->updateData('table name', 'id number', $data);
 ```
 
+---
+
 ### `deleteData()`
 if you want to Delete a specificed data from the table, then used `deleteData` function.
 you needed the id number of table data.
@@ -126,17 +139,23 @@ you needed the id number of table data.
 $client->deleteData('table name', 2 //id);
 ```
 
+---
+
 ### `Pagination()`
 
 ```php
 $client->pages('table name');
 ```
 
+---
+
 ### `Filtering()`
 
 ```
 $client->filter('table name', 1);
 ```
+
+---
 
 ### `Matching()`
 
@@ -149,4 +168,5 @@ $data = [
 $client->matchs('table name', $data);
 
 ```
+
 ---
