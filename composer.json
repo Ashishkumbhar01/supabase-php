@@ -10,6 +10,7 @@
     ],
     "type": "library",
     "require": {
+<<<<<<< HEAD
         "php": "^8.2.0",
         "guzzlehttp/guzzle": "^7.9",
         "guzzlehttp/promises": "^2.2",
@@ -26,11 +27,14 @@
         "myclabs/deep-copy": "^1.13",
         "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^12.2"
+=======
+        "php": "^8.3"
+>>>>>>> refs/remotes/origin/dev
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Supabase\\Client\\": "src/"
+            "Supabase\\Client\\": "src/Supabase/"
         }
     },
     "autoload-dev": {
@@ -69,5 +73,10 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
+    },
+    "require-dev": {
+        "laravel/pint": "^1.22",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^12.2"
     }
 }
