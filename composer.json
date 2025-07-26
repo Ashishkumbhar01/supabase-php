@@ -10,8 +10,7 @@
     ],
     "type": "library",
     "require": {
-<<<<<<< HEAD
-        "php": "^8.2.0",
+        "php": "^8.2",
         "guzzlehttp/guzzle": "^7.9",
         "guzzlehttp/promises": "^2.2",
         "guzzlehttp/psr7": "^2.7",
@@ -27,9 +26,6 @@
         "myclabs/deep-copy": "^1.13",
         "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^12.2"
-=======
-        "php": "^8.3"
->>>>>>> refs/remotes/origin/dev
     },
     "license": "MIT",
     "autoload": {
@@ -64,19 +60,11 @@
             "url": "https://opencollective.com/CodeWithSushil"
         }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "config": {
-        "optimize-autoloader": true,
+    "config":{
         "sort-packages": true,
-        "preferred-install": "dist",
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
-        }
+        "prefer-stable": "dist",
+        "optimize-autoloader": true
     },
-    "require-dev": {
-        "laravel/pint": "^1.22",
-        "phpstan/phpstan": "^2.1",
-        "phpunit/phpunit": "^12.2"
-    }
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
