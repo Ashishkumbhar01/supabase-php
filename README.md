@@ -146,27 +146,6 @@ $data = [
 ];
 
 $client->matchs('table name', $data);
+
 ```
-
-### Authentication
-* Auth Class coming soon.
-
-
-### Storage
-* storage class coming soon.
-* 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---
