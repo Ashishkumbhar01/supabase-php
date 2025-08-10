@@ -10,9 +10,10 @@
 
 Supabase  client for PHP:
 - Realtime database, Storage, Authentication and many more.
-- When you creating your supabase table, make sure RLS (Row Level Security) option be [×] disable.
-- If RLS are enable [✓] maybe you getting some errors.
+- [ ] When you creating your supabase table, make sure RLS (Row Level Security) option be disable.
+- [x] If RLS are enable maybe you getting some errors.
 
+---
 
 > [!WARNING]
 > if you push the code to production while Row-Level Security (RLS) is disabled, 
