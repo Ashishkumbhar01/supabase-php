@@ -1,4 +1,4 @@
-.env
+/.env
 /vendor/
-composer.lock
-
+/composer.lock
+/.phpunit.cache/
