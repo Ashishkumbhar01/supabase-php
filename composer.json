@@ -24,7 +24,7 @@
         "laravel/pint": "^1.24",
         "mockery/mockery": "^1.6",
         "myclabs/deep-copy": "^1.13",
-        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan": "*",
         "phpunit/php-code-coverage": "^12.3",
         "phpunit/phpunit": "^12.2"
     },
