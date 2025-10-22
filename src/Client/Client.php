@@ -6,13 +6,15 @@ namespace Supabase\Client;
 
 final class Client
 {
-    private string $url;
-    private string $token;
+    private readonly string $url;
+    private readonly string $token;
 
     public function __construct()
     {
-        $ch = curl_init();
-
+        if($this->url === ''){
+            throw new Exception('URL');
+        }
+            $ch = curl_init($this->url);
     }
 
     public function setURL(string $url): self
