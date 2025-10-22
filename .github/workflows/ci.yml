@@ -1,0 +1,98 @@
+name: PHP CI (Test, Mutation, Coverage, Analysis)
+
+on:
+  push:
+    branches: [dev, main]
+  pull_request:
+    branches: [dev, main]
+
+jobs:
+  php-ci:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version: ['8.3', '8.4']
+
+    steps:
+      # 1️⃣ Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup PHP with Xdebug
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: xdebug
+          tools: composer, phpunit, phpstan, psalm, phpcs, infection
+          extensions: mbstring, curl
+          ini-values: post_max_size=256M, memory_limit=2G
+
+      # 3️⃣ Cache dependencies
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: composer-
+
+      # 4️⃣ Install dependencies
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-progress
+
+      # 5️⃣ Syntax check
+      - name: Syntax check
+        run: find . -type f -name "*.php" -exec php -l {} \;
+
+      # 6️⃣ PHPUnit with coverage (fail if <80%)
+      - name: Run PHPUnit tests with coverage
+        run: |
+          vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text --colors=always
+          COVERAGE=$(php -r "
+              preg_match('/Lines:\\s+([0-9\\.]+)%/', file_get_contents('phpunit.log'), \$m);
+              echo \$m[1] ?? 0;
+          ")
+          echo \"Code coverage: $COVERAGE%\"
+          if (( $(echo \"$COVERAGE < 80\" | bc -l) )); then
+              echo \"❌ Coverage below 80%!\" && exit 1
+          fi
+        continue-on-error: false
+
+      # 7️⃣ Static analysis - PHPStan
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse src --level=max
+
+      # 8️⃣ Static analysis - Psalm
+      - name: Run Psalm
+        run: vendor/bin/psalm --output-format=compact
+
+      # 9️⃣ Code Style - PHPCS
+      - name: Run PHPCS
+        run: vendor/bin/phpcs --standard=PSR12 src
+
+      # 🔟 Security Audit
+      - name: Composer Security Audit
+        run: composer audit || true
+
+      # 11️⃣ Mutation Testing (Infection)
+      - name: Run Infection Mutation Testing
+        run: vendor/bin/infection --min-msi=80 --threads=4 --coverage=coverage.xml --log-verbosity=none
+        env:
+          XDEBUG_MODE: coverage
+
+      # 12️⃣ Upload Coverage to Codecov
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: coverage.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+          verbose: true
+
+      # 13️⃣ Upload artifacts
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage.xml
