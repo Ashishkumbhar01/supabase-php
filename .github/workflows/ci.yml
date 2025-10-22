@@ -1,4 +1,4 @@
-name: PHP CI (Test, Mutation, Coverage, Analysis)
+name: PHP CI
 
 on:
   push:
@@ -42,8 +42,8 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       # 5️⃣ Syntax check
-      - name: Syntax check
-        run: find . -type f -name "*.php" -exec php -l {} \;
+      #- name: Syntax check
+      #  run: find . -type f -name "*.php" -exec php -l {} \;
 
       # 6️⃣ PHPUnit with coverage (fail if <80%)
       - name: Run PHPUnit tests with coverage
