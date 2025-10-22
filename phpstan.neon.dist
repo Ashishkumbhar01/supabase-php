@@ -1,0 +1,22 @@
+includes:
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+
+parameters:
+    level: max
+
+    paths:
+        - src
+
+    reportUnmatchedIgnoredErrors: true
+    inferPrivatePropertyTypeFromConstructor: true
+    treatPhpDocTypesAsCertain: true
+    checkUnionTypes: true
+    checkExtraArguments: true
+    checkMissingTypehints: true
+
+    excludePaths:
+        - tests/*
+
+rules:
+    - PHPStan\Rules\Arrays\DuplicateKeysInLiteralArraysRule
+    - PHPStan\Rules\Methods\CallMethodsRule

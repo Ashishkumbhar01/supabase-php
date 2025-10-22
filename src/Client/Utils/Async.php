@@ -1,5 +1,6 @@
 <?php
 
-public function Async(){
-    // Async
-}
+namespace Supabase\Client\Utils;
+
+//function Async(){
+// Async}
