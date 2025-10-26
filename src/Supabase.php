@@ -4,13 +4,13 @@ declare(strict_types=1);
 namespace Supabase\Client;
 use Exception;
 
-class Supabase
+final readonly class Supabase
 {
-  private $apikey;
-  protected $url;
-
-  public function __construct(?string $url=null, ?string $apikey=null)
-  {
+    public function __construct(
+        private ?string $url=null,
+        private ?string $apikey=null
+    )
+    {
     if(!filter_var($url, FILTER_VALIDATE_URL))
     {
       echo "Invalid URL format";
