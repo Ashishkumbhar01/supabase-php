@@ -55,7 +55,8 @@ require_once('vendor/autoload.php');
 // config
 $config = [
   'url' => $_ENV['SB_URL'],
-  'apikey' => $_ENV['SB_APIKEY']
+  # 'apikey' => $_ENV['SB_APIKEY'],
+  'service_role' => $_ENV['SB_SERVICE_ROLE'] # If don't want disable RLS 
 ];
 
 $client = new Supabase($config['url'], $config['apikey']);
