@@ -171,3 +171,9 @@ $client->matchs('table name', $data);
 ```
 
 ---
+
+### Contributors
+<a href="https://github.com/Ashishkumbhar01/supabase-php/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Ashishkumbhar01/supabase-php" />
+</a>
+
