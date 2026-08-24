@@ -55,7 +55,8 @@ require_once('vendor/autoload.php');
 // config
 $config = [
   'url' => $_ENV['SB_URL'],
-  'apikey' => $_ENV['SB_APIKEY']
+  # 'apikey' => $_ENV['SB_APIKEY'],
+  'service_role' => $_ENV['SB_SERVICE_ROLE'] # If don't want disable RLS 
 ];
 
 $client = new Supabase($config['url'], $config['apikey']);
@@ -170,3 +171,9 @@ $client->matchs('table name', $data);
 ```
 
 ---
+
+### Contributors
+<a href="https://github.com/Ashishkumbhar01/supabase-php/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Ashishkumbhar01/supabase-php" />
+</a>
+
